@@ -8,11 +8,11 @@
 
 	$conn = mysqli_init();
 
-	echo "<h2>Init complete.</h2>"
+	echo "<h2>Init complete.</h2>";
 
     mysqli_ssl_set($conn,NULL,NULL,$sslcert,NULL,NULL);
 
-	echo "<h2>SSL set complete.</h2>"
+	echo "<h2>SSL set complete.</h2>";
 
     mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL);
     if (mysqli_connect_errno($conn)) {
