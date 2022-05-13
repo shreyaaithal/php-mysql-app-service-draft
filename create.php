@@ -1,12 +1,9 @@
+<?php require "templates/header.php"; ?>
+
 <?php
 
-/**
- * Use an HTML form to create a new entry in the
- * users table.
- *
- */
-
 if (isset($_POST['submit'])) {
+    echo "<h2>Yo.</h2>";
     require "config.php";
 
     //Establishes the connection
@@ -21,7 +18,12 @@ if (isset($_POST['submit'])) {
     $sql = file_get_contents("database/schemas.sql");
 
     // Run the create table query
-    mysqli_query($conn, $sql);
+    if(mysqli_query($conn, $sql)){
+        echo "<h2>Table Created.</h2>";
+    }
+    else{
+        die('Could not create'); 
+    }
 
     $ProductName = $_POST['ProductName'];
     $Price = $_POST['Price'];
@@ -36,14 +38,13 @@ if (isset($_POST['submit'])) {
     //Close the connection
     mysqli_close($conn);
 
-}
-?>
+} else {
 
-<?php require "templates/header.php"; ?>
+?>
 
 <h2>Add a Product</h2>
 
-<form method="post" action = "<?php $_PHP_SELF ?>">>
+<form method="post" action = "">
     <label for="ProductName">Product Name</label>
     <input type="text" name="ProductName" id="ProductName">
     <label for="Price">Price</label>
@@ -53,4 +54,9 @@ if (isset($_POST['submit'])) {
 
 <a href="index.php">Back to Home Page</a>
 
+<?php
+      }
+?>
+
 <?php require "templates/footer.php"; ?>
+
