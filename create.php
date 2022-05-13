@@ -6,7 +6,6 @@
  *
  */
 
-
 if (isset($_POST['submit'])) {
     require "config.php";
 
@@ -15,7 +14,7 @@ if (isset($_POST['submit'])) {
     mysqli_ssl_set($conn,NULL,NULL,$sslcert,NULL,NULL);
     mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL);
     if (mysqli_connect_errno($conn)) {
-        echo "<h2>ERROR</h2";
+        die('Could not connect: ' . mysqli_error($conn));
     }
     echo "<h2>Connection Established.</h2>";
 
@@ -31,7 +30,8 @@ if (isset($_POST['submit'])) {
         mysqli_stmt_bind_param($stmt, 'ssd', $product_name, $product_price);
         $status = mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-    }
+        echo "<h2>Success Insert.</h2>";
+    }    
 
     //Close the connection
     mysqli_close($conn);
@@ -41,13 +41,9 @@ if (isset($_POST['submit'])) {
 
 <?php require "templates/header.php"; ?>
 
-<?php if (isset($_POST['submit']) && $status) { ?>
-    <blockquote>Product: <?php echo $_POST['ProductName']; ?> has been successfully added.</blockquote>
-<?php } ?>
-
 <h2>Add a Product</h2>
 
-<form method="post">
+<form method="post" action = "<?php $_PHP_SELF ?>">>
     <label for="ProductName">Product Name</label>
     <input type="text" name="ProductName" id="ProductName">
     <label for="Price">Price</label>
