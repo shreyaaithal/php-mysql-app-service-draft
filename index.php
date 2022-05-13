@@ -22,7 +22,7 @@
     
 	echo "<h2>Connection Established.</h2>";
 
-    $sql = file_get_contents("database/schemas.sql");
+    $sql = file_get_contents("schema.sql");
 
     // Run the create table query
     if(mysqli_query($conn, $sql)){
