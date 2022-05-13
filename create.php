@@ -14,7 +14,6 @@ if (isset($_POST['submit'])) {
     mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL);
     if (mysqli_connect_errno($conn)) {
         echo "<h2>Connection Failed.</h2>";
-        die('Could not connect: ' . mysqli_error($conn));
     }
     echo "<h2>Connection Established.</h2>";
 
