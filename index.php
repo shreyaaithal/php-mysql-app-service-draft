@@ -14,10 +14,11 @@
 
 	echo "<h2>SSL set complete.</h2>";
 
-    mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL);
-    if (mysqli_connect_errno($conn)) {
-        echo "<h2>Connection Failed.</h2>";
-    }
+    if(!mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL))
+	{
+		echo "<h2>Connection Failed.</h2>";
+		echo mysqli_connect_error();
+	}
     
 	echo "<h2>Connection Established.</h2>";
 
