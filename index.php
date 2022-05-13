@@ -25,7 +25,7 @@
     $sql = file_get_contents("schema.sql");
 
 	echo "<h2>$sql</h2>";
-	
+
     // Run the create table query
     if(mysqli_query($conn, $sql)){
         echo "<h2>Table Created.</h2>";
@@ -35,7 +35,7 @@
     }
 
     $ProductName = "Pen";
-    $Price = "10.5";
+    $Price = 10.5;
 
     if ($stmt = mysqli_prepare($conn, "INSERT INTO Products (ProductName, Price) VALUES (?, ?)")) {
         mysqli_stmt_bind_param($stmt, 'ssd', $ProductName, $Price);
