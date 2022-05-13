@@ -6,11 +6,14 @@ if (isset($_POST['submit'])) {
     echo "<h2>Yo.</h2>";
     require "config.php";
 
+    echo "<h2>$host and $username and $password and $db_name and $sslcert</h2>";
+
     //Establishes the connection
     $conn = mysqli_init();
     mysqli_ssl_set($conn,NULL,NULL,$sslcert,NULL,NULL);
     mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL);
     if (mysqli_connect_errno($conn)) {
+        echo "<h2>Connection Failed.</h2>";
         die('Could not connect: ' . mysqli_error($conn));
     }
     echo "<h2>Connection Established.</h2>";
