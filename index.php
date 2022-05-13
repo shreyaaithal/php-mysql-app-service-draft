@@ -24,6 +24,8 @@
 
     $sql = file_get_contents("schema.sql");
 
+	echo "<h2>$sql</h2>";
+	
     // Run the create table query
     if(mysqli_query($conn, $sql)){
         echo "<h2>Table Created.</h2>";
