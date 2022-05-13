@@ -38,7 +38,7 @@
     $Price = 10.5;
 
     if ($stmt = mysqli_prepare($conn, "INSERT INTO Products (ProductName, Price) VALUES (?, ?)")) {
-        mysqli_stmt_bind_param($stmt, 'ssd', $ProductName, $Price);
+        mysqli_stmt_bind_param($stmt, 'sd', $ProductName, $Price);
         $status = mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         echo "<h2>Success Insert.</h2>";
