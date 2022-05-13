@@ -8,16 +8,16 @@
 
 
 if (isset($_POST['submit'])) {
-    require "database/config.php";
+    require "config.php";
 
     //Establishes the connection
     $conn = mysqli_init();
     mysqli_ssl_set($conn,NULL,NULL,$sslcert,NULL,NULL);
     mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL);
-    /*if (mysqli_connect_errno($conn)) {
-        die('Failed to connect to MySQL: '.mysqli_connect_error());
+    if (mysqli_connect_errno($conn)) {
+        echo "<h2>ERROR</h2";
     }
-    printf("Connection Established.\n");*/
+    echo "<h2>Connection Established.</h2>";
 
     $sql = file_get_contents("database/schemas.sql");
 
