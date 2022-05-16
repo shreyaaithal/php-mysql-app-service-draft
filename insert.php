@@ -12,10 +12,13 @@ if (isset($_POST['submit'])) {
 		die('Failed to connect to MySQL: '.mysqli_connect_error());
 	}
 
-    // Run the create table query
-    $sql = file_get_contents("database/schema.sql");
-    if(!mysqli_query($conn, $sql)){
-        die('Table Creation Failed');
+    if (!mysqli_query("DESCRIBE `Products`") ) 
+    {
+        //Create table if it does not exist
+        $sql = file_get_contents("database/schema.sql");
+        if(!mysqli_query($conn, $sql)){
+            die('Table Creation Failed');
+        }
     }
 
     // Insert data from form
