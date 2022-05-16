@@ -19,12 +19,13 @@ if(!mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQ
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 
+echo "<table> <tr> <th> Product Name </th> <th> Price </th> </tr>";
 $res = mysqli_query($conn, 'SELECT * FROM Products');
 while ($row = mysqli_fetch_assoc($res)) {
-    echo "<th> ".$row["ProductName"]." </th>";
-    echo "<td> ".$row["Price"]." </td>";
+    echo "<tr> <td> ".$row["ProductName"]." </td>";
+    echo "<td> ".$row["Price"]." </td> </tr>";
 }
-
+echo "</table>";
 
 //Close the connection
 mysqli_close($conn);
