@@ -21,8 +21,10 @@ if(!mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQ
 
 $res = mysqli_query($conn, 'SELECT * FROM Products');
 while ($row = mysqli_fetch_assoc($res)) {
-    echo "<h2>$row</h2>";
+    echo "<th> ".$row["ProductName"]." </th>";
+    echo "<td> ".$row["Price"]." </td>";
 }
+
 
 //Close the connection
 mysqli_close($conn);
