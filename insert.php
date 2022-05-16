@@ -16,8 +16,7 @@ if (isset($_POST['submit'])) {
 
 	//echo "<h2>SSL set complete.</h2>";
 
-    if(!mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL))
-	{
+    if(!mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL)){
 		die('Failed to connect to MySQL: '.mysqli_connect_error());
 	}
 
