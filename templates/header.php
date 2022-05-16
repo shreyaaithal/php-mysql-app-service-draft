@@ -9,4 +9,5 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<h1>Product Inventory</h1>
+	<h1>Product Catalog</h1>
+	<br>

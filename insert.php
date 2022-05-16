@@ -3,30 +3,22 @@
 <?php
 
 if (isset($_POST['submit'])) {
-    //echo "<h2>Initializing.</h2>";
     require "config.php";
 
-    //echo "<h2>Using $host and $username and $password and $db_name and $sslcert</h2>";
-
-    //Establishes the connection
+    //Establish the connection
     $conn = mysqli_init();
-    //echo "<h2>Init done.</h2>";
-
     mysqli_ssl_set($conn,NULL,NULL,$sslcert,NULL,NULL);
-
-	//echo "<h2>SSL set complete.</h2>";
-
     if(!mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL)){
 		die('Failed to connect to MySQL: '.mysqli_connect_error());
 	}
 
-    $sql = file_get_contents("schema.sql");
-
     // Run the create table query
+    $sql = file_get_contents("schema.sql");
     if(!mysqli_query($conn, $sql)){
-        die('No Table Created');
+        die('Table Creation Failed');
     }
 
+    // Insert data from form
     $ProductName = $_POST['ProductName'];
     $Price = $_POST['Price'];
 
@@ -54,11 +46,14 @@ if (isset($_POST['submit'])) {
     <input type="submit" name="submit" value="Submit">
 </form>
 
-<a href="index.php">Back to Home Page</a>
-
 <?php
       }
 ?>
+
+<br>
+<a href="index.php">Back to Home Page</a>
+<br>
+<a href="read.php">View Catalog</a> 
 
 <?php require "templates/footer.php"; ?>
 
