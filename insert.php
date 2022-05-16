@@ -3,37 +3,29 @@
 <?php
 
 if (isset($_POST['submit'])) {
-    echo "<h2>Initializing.</h2>";
+    //echo "<h2>Initializing.</h2>";
     require "config.php";
 
-    echo "<h2>Using $host and $username and $password and $db_name and $sslcert</h2>";
+    //echo "<h2>Using $host and $username and $password and $db_name and $sslcert</h2>";
 
     //Establishes the connection
     $conn = mysqli_init();
-    echo "<h2>Init done.</h2>";
+    //echo "<h2>Init done.</h2>";
 
     mysqli_ssl_set($conn,NULL,NULL,$sslcert,NULL,NULL);
 
-	echo "<h2>SSL set complete.</h2>";
+	//echo "<h2>SSL set complete.</h2>";
 
     if(!mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL))
 	{
-		echo "<h2>Connection Failed.</h2>";
-		echo mysqli_connect_error();
+		die('Failed to connect to MySQL: '.mysqli_connect_error());
 	}
-    
-	echo "<h2>Connection Established.</h2>";
 
     $sql = file_get_contents("schema.sql");
 
-	echo "<h2>$sql</h2>";
-
     // Run the create table query
-    if(mysqli_query($conn, $sql)){
-        echo "<h2>Table Created.</h2>";
-    }
-    else{
-        echo "<h2>No table Created.</h2>"; 
+    if(!mysqli_query($conn, $sql)){
+        die('No Table Created');
     }
 
     $ProductName = $_POST['ProductName'];
@@ -43,7 +35,7 @@ if (isset($_POST['submit'])) {
         mysqli_stmt_bind_param($stmt, 'sd', $ProductName, $Price);
         $status = mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-        echo "<h2>Success Insert.</h2>";
+        echo "<h2>Product \"$ProductName\" has been successfully added.</h2>";
     } 
 
     //Close the connection
