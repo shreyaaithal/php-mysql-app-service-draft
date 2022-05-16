@@ -2,7 +2,7 @@
 
 <?php
 
-require "config.php";
+require "database/config.php";
 
 
 //Establish the connection
