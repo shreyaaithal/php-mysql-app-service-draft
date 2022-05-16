@@ -3,7 +3,7 @@
 <?php
 
 if (isset($_POST['submit'])) {
-    require "config.php";
+    require "database/config.php";
 
     //Establish the connection
     $conn = mysqli_init();
@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
 	}
 
     // Run the create table query
-    $sql = file_get_contents("schema.sql");
+    $sql = file_get_contents("database/schema.sql");
     if(!mysqli_query($conn, $sql)){
         die('Table Creation Failed');
     }
