@@ -12,16 +12,23 @@ if (isset($_POST['submit'])) {
 		die('Failed to connect to MySQL: '.mysqli_connect_error());
 	}
 
+    echo "Connected";
+
     $res = mysqli_query($conn, "SHOW TABLES LIKE Products");
 
-    if (mysqli_num_rows($res) == 0) 
+    echo "Table exists?".mysqli_num_rows($res);
+
+    if (mysqli_num_rows($res) <= 0) 
     {
+        echo "Create table";
         //Create table if it does not exist
         $sql = file_get_contents("database/schema.sql");
         if(!mysqli_query($conn, $sql)){
             die('Table Creation Failed');
         }
     }
+
+    echo "Insert data";
 
     // Insert data from form
     $ProductName = $_POST['ProductName'];
