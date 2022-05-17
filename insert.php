@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 
     echo "Connected";
 
-    $res = mysqli_query($conn, "SHOW TABLES LIKE Products");
+    $res = mysqli_query($conn, "SHOW TABLES LIKE 'Products'");
     $tablecount = mysqli_num_rows($res);
 
     echo "<h2>$tablecount tables exist</h2>"; 
