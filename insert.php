@@ -12,24 +12,16 @@ if (isset($_POST['submit'])) {
 		die('Failed to connect to MySQL: '.mysqli_connect_error());
 	}
 
-    echo "Connected";
-
     $res = mysqli_query($conn, "SHOW TABLES LIKE 'Products'");
-    $tablecount = mysqli_num_rows($res);
-
-    echo "<h2>$tablecount tables exist</h2>"; 
-    /*
+ 
     if (mysqli_num_rows($res) <= 0) 
     {
-        echo "Create table";
         //Create table if it does not exist
         $sql = file_get_contents("database/schema.sql");
         if(!mysqli_query($conn, $sql)){
             die('Table Creation Failed');
         }
     }
-
-    echo "Insert data";
 
     // Insert data from form
     $ProductName = $_POST['ProductName'];
@@ -40,8 +32,8 @@ if (isset($_POST['submit'])) {
         $status = mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         echo "<h2>Product \"$ProductName\" has been successfully added.</h2>";
-    } 
-    */
+    }
+    
     //Close the connection
     mysqli_close($conn);
 
