@@ -14,8 +14,7 @@ if (isset($_POST['submit'])) {
 
     $res = mysqli_query($conn, "SHOW TABLES LIKE 'Products'");
  
-    if (mysqli_num_rows($res) <= 0) 
-    {
+    if (mysqli_num_rows($res) <= 0) {
         //Create table if it does not exist
         $sql = file_get_contents("database/schema.sql");
         if(!mysqli_query($conn, $sql)){
@@ -29,11 +28,17 @@ if (isset($_POST['submit'])) {
 
     if ($stmt = mysqli_prepare($conn, "INSERT INTO Products (ProductName, Price) VALUES (?, ?)")) {
         mysqli_stmt_bind_param($stmt, 'sd', $ProductName, $Price);
-        $status = mysqli_stmt_execute($stmt);
+        mysqli_stmt_execute($stmt);
+        if (mysqli_stmt_affected_rows($stmt) == 0) {
+            echo "<h2>Catalog update failed.</h2>";
+        }
+        else {
+            echo "<h2>Product \"$ProductName\" has been successfully added.</h2>";
+        }
         mysqli_stmt_close($stmt);
-        echo "<h2>Product \"$ProductName\" has been successfully added.</h2>";
+        
     }
-    
+
     //Close the connection
     mysqli_close($conn);
 
@@ -55,10 +60,14 @@ if (isset($_POST['submit'])) {
       }
 ?>
 
-<br>
-<a href="index.php">Back to Home Page</a>
-<br>
-<a href="read.php">View Catalog</a> 
+<br> <br> <br>
+<table>
+    <tr>
+        <td> <a href="insert.php">Add Another Product</a> </td>
+        <td> <a href="read.php">View Catalog</a> </td>
+        <td> <a href="index.php">Back to Home Page</a> </td>
+    </tr>
+</table>
 
 <?php require "templates/footer.php"; ?>
 

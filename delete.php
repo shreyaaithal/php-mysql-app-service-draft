@@ -16,9 +16,16 @@ if (isset($_POST['submit'])) {
 
     if ($stmt = mysqli_prepare($conn, "DELETE FROM Products WHERE ProductName = ?")) {
         mysqli_stmt_bind_param($stmt, 's', $ProductName);
-        $status = mysqli_stmt_execute($stmt);
+        mysqli_stmt_execute($stmt);
+        if (mysqli_stmt_affected_rows($stmt) == 0) {
+            echo "<h2>Product \"$ProductName\" was not found in the catalog.</h2>";
+        }
+        else {
+            echo "<h2>Product \"$ProductName\" has been removed from the catalog.</h2>";
+        }
+
         mysqli_stmt_close($stmt);
-        echo "<h2>Product \"$ProductName\" has been removed from the catalog.</h2>";
+        
     } 
 
     //Close the connection
@@ -28,7 +35,7 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<h2>Delete a Product</h2>
+<h2>Remove a Product</h2>
 
 <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <label for="ProductName">Product Name</label>
@@ -40,9 +47,13 @@ if (isset($_POST['submit'])) {
       }
 ?>
 
-<br>
-<a href="index.php">Back to Home Page</a>
-<br>
-<a href="read.php">View Catalog</a> 
+<br> <br> <br>
+<table>
+    <tr>
+        <td> <a href="delete.php">Remove Another Product</a> </td>
+        <td> <a href="read.php">View Catalog</a> </td>
+        <td> <a href="index.php">Back to Home Page</a> </td>
+    </tr>
+</table>
 <?php require "templates/footer.php"; ?>
 
