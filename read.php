@@ -22,7 +22,7 @@ if (mysqli_num_rows($res) <= 0) {
     $res = mysqli_query($conn, 'SELECT * FROM Products');
 
     if (mysqli_num_rows($res) <= 0) {
-        echo "Catalog is empty.";
+        echo "<h2>Catalog is empty.</h2>";
     }
     else {
         echo "<table> <tr> <th> Product Name </th> <th> Price </th> </tr>";
