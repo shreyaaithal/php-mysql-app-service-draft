@@ -15,9 +15,10 @@ if (isset($_POST['submit'])) {
     echo "Connected";
 
     $res = mysqli_query($conn, "SHOW TABLES LIKE Products");
+    $tablecount = mysqli_num_rows($res);
 
-    echo "Table exists?".mysqli_num_rows($res);
-
+    echo "<h2>$tablecount tables exist</h2>"; 
+    /*
     if (mysqli_num_rows($res) <= 0) 
     {
         echo "Create table";
@@ -40,7 +41,7 @@ if (isset($_POST['submit'])) {
         mysqli_stmt_close($stmt);
         echo "<h2>Product \"$ProductName\" has been successfully added.</h2>";
     } 
-
+    */
     //Close the connection
     mysqli_close($conn);
 
