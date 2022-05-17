@@ -12,21 +12,27 @@ if(!mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQ
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 
-//Query and print data
-$res = mysqli_query($conn, 'SELECT * FROM Products');
+//Test if table exists
+$res = mysqli_query($conn, "SHOW TABLES LIKE 'Products'");
 
 if (mysqli_num_rows($res) <= 0) {
-    echo "Catalog is empty.";
-}
-else {
-    echo "<table> <tr> <th> Product Name </th> <th> Price </th> </tr>";
-    while ($row = mysqli_fetch_assoc($res)) {
-        echo "<tr> <td> ".$row["ProductName"]." </td>";
-        echo "<td> ".$row["Price"]." </td> </tr>";
-    }
-    echo "</table>";
-}
+    echo "<h2>Catalog is empty</h2>";
+} else {
+    //Query and print data
+    $res = mysqli_query($conn, 'SELECT * FROM Products');
 
+    if (mysqli_num_rows($res) <= 0) {
+        echo "Catalog is empty.";
+    }
+    else {
+        echo "<table> <tr> <th> Product Name </th> <th> Price </th> </tr>";
+        while ($row = mysqli_fetch_assoc($res)) {
+            echo "<tr> <td> ".$row["ProductName"]." </td>";
+            echo "<td> ".$row["Price"]." </td> </tr>";
+        }
+        echo "</table>";
+    }
+}
 
 //Close the connection
 mysqli_close($conn);
