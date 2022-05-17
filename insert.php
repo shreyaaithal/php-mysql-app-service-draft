@@ -12,7 +12,9 @@ if (isset($_POST['submit'])) {
 		die('Failed to connect to MySQL: '.mysqli_connect_error());
 	}
 
-    if (!mysqli_query("DESCRIBE `Products`") ) 
+    $res = mysqli_query("SHOW TABLES LIKE Products");
+
+    if (mysqli_num_rows($res) == 0) 
     {
         //Create table if it does not exist
         $sql = file_get_contents("database/schema.sql");
