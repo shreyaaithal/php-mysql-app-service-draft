@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
 		die('Failed to connect to MySQL: '.mysqli_connect_error());
 	}
 
-    $res = mysqli_query("SHOW TABLES LIKE Products");
+    $res = mysqli_query($conn, "SHOW TABLES LIKE Products");
 
     if (mysqli_num_rows($res) == 0) 
     {
