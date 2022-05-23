@@ -4,7 +4,6 @@
 
 .left-align {
 	text-align: left;
-	position: absolute;
 }
 
 ul {
@@ -30,5 +29,4 @@ th {
 	display: inline-block;
 	padding: 5px;
 	border-bottom: 1px solid #aaa;
-	position: absolute;
 }

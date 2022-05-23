@@ -52,8 +52,7 @@
 
     <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <table>
-            <div class="left-align">
-                <tr>
+                <tr align="left">
                     <td align="right">
                         <label for="ProductName">Product Name</label>
                     </td>
@@ -61,7 +60,7 @@
                         <input type="text" name="ProductName" id="ProductName">
                     </td>
                 </tr>
-                <tr>
+                <tr align="left">
                     <td align="right">
                         <label for="Price">Price</label>
                     </td>
@@ -69,14 +68,8 @@
                         <input type="text" name="Price" id="Price">
                     </td>
                 </tr>
-                <tr>
-                    <td align="left">
-                        
-                    </td>
-                </tr>
-            </div>
         </table>
-        <input type="submit" name="submit" value="Submit">
+        <input align="center" type="submit" name="submit" value="Submit">
     </form>
 
     <?php
