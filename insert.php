@@ -52,24 +52,29 @@
 
     <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <table>
-            <tr>
-                <td align="right">
-                    <label for="ProductName">Product Name</label>
-                </td>
-                <td align="left">
-                    <input type="text" name="ProductName" id="ProductName">
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <label for="Price">Price</label>
-                </td>
-                <td align="left">
-                    <input type="text" name="Price" id="Price">
-                </td>
-            </tr>
+            <div class="left-align"
+                <tr>
+                    <td align="right">
+                        <label for="ProductName">Product Name</label>
+                    </td>
+                    <td align="left">
+                        <input type="text" name="ProductName" id="ProductName">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label for="Price">Price</label>
+                    </td>
+                    <td align="left">
+                        <input type="text" name="Price" id="Price">
+                    </td>
+                </tr>
+                <tr>
+                    <input type="submit" name="submit" value="Submit">
+                </tr>
+            </div>
         </table>
-        <input type="submit" name="submit" value="Submit">
+        
     </form>
 
     <?php
