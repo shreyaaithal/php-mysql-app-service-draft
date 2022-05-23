@@ -11,11 +11,13 @@ ul {
 }
 
 label {
-	display: inline-block;
+	display: block;
+	text-align: left;
 }
 
 input {
-	display: inline-block;
+	display: block;
+	text-align: left;
 }
 
 table {
