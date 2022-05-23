@@ -51,11 +51,13 @@
     <h2>Add a Product</h2>
 
     <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="ProductName">Product Name</label>
-        <input type="text" name="ProductName" id="ProductName">
-        <label for="Price">Price</label>
-        <input type="text" name="Price" id="Price">
-        <input type="submit" name="submit" value="Submit">
+        <div class="left-align">
+            <label for="ProductName">Product Name</label>
+            <input type="text" name="ProductName" id="ProductName">
+            <label for="Price">Price</label>
+            <input type="text" name="Price" id="Price">
+            <input type="submit" name="submit" value="Submit">
+        </div>
     </form>
 
     <?php

@@ -2,6 +2,10 @@
 	text-align: center;
 }
 
+.left-align {
+	text-align: left;
+}
+
 ul {
 	display: inline-block;
 }
@@ -12,12 +16,14 @@ label {
 }
 
 table {
+	display: inline-block;
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
 td,
 th {
+	display: inline-block;
 	padding: 5px;
 	border-bottom: 1px solid #aaa;
 }
