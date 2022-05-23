@@ -70,11 +70,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <input type="submit" name="submit" value="Submit">
+                    <td align="left">
+                        
+                    </td>
                 </tr>
             </div>
         </table>
-        
+        <input type="submit" name="submit" value="Submit">
     </form>
 
     <?php
