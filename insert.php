@@ -52,7 +52,7 @@
 
     <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <table>
-            <div class="left-align"
+            <div class="left-align">
                 <tr>
                     <td align="right">
                         <label for="ProductName">Product Name</label>

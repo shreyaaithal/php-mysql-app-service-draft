@@ -11,11 +11,11 @@ ul {
 }
 
 label {
-	display: block;
+	display: inline-block;
 }
 
 input {
-	display: block;
+	display: inline-block;
 }
 
 table {
