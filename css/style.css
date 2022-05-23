@@ -11,8 +11,11 @@ ul {
 }
 
 label {
-	display: block;
-	margin: 5px 0;
+	display: inline-block;
+}
+
+input {
+	display: inline-block;
 }
 
 table {
