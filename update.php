@@ -30,7 +30,7 @@
                     echo "<h2>Product \"$ProductName\" was not found in the catalog.</h2>";
                 }
                 else {
-                    echo "<h2>Price of the product \"$ProductName\" has been successfully updated to USD $Price</h2>";
+                    echo "<h2>Price of the product \"$ProductName\" has been successfully updated to USD $Price.</h2>";
                 }
                 mysqli_stmt_close($stmt);
                 
