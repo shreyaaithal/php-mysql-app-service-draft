@@ -69,7 +69,7 @@
                     </td>
                 </tr>
         </table>
-        <input align="center" type="submit" name="submit" value="Submit">
+        <input type="submit" name="submit" value="Submit">
     </form>
 
     <?php
