@@ -49,17 +49,17 @@
     ?>
 
     <h2>Add a Product</h2>
-    <br><br>
+    <br>
 
     <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <table>
-            <tr align="left">
-                <td> <label for="ProductName">Product Name</label> </td>
-                <td> <input type="text" name="ProductName" id="ProductName"> </td>
+            <tr>
+                <td class="no-border"> <label for="ProductName">Product Name</label> </td>
+                <td class="no-border"> <input type="text" name="ProductName" id="ProductName"> </td>
             </tr>
-            <tr align="left">
-                <td> <label for="Price">Price</label> </td>
-                <td> <input type="text" name="Price" id="Price"> </td>
+            <tr>
+                <td class="no-border"> <label for="Price">Price</label> </td>
+                <td class="no-border"> <input type="text" name="Price" id="Price"> </td>
             </tr>
         </table>      
         <br><br>

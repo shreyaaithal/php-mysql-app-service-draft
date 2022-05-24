@@ -46,10 +46,17 @@
     ?>
 
     <h2>Remove a Product</h2>
+    <br>
 
     <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="ProductName">Product Name</label>
-        <input type="text" name="ProductName" id="ProductName">
+
+        <table>
+            <tr>
+                <td class="no-border"> <label for="ProductName">Product Name</label> </td>
+                <td class="no-border"> <input type="text" name="ProductName" id="ProductName"> </td>
+            </tr>
+        </table>
+        <br><br>
         <input type="submit" name="submit" value="Submit">
     </form>
 
