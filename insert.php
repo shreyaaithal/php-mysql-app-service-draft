@@ -51,24 +51,11 @@
     <h2>Add a Product</h2>
 
     <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <table>
-                <tr>
-                    <td align="left">
-                        <label for="ProductName">Product Name</label>
-                    </td>
-                    <td align="right">
-                        <input type="text" name="ProductName" id="ProductName">
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right">
-                        <label for="Price">Price</label>
-                    </td>
-                    <td align="right">
-                        <input type="text" name="Price" id="Price">
-                    </td>
-                </tr>
-        </table>
+        <label align="left" for="ProductName">Product Name</label>
+        <input align="right" type="text" name="ProductName" id="ProductName">
+        <label align="left" for="Price">Price</label>
+        <input align="right" type="text" name="Price" id="Price">
+        <br>
         <input type="submit" name="submit" value="Submit">
     </form>
 
