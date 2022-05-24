@@ -27,7 +27,7 @@
             echo "<h2>Catalog is empty.</h2>";
         }
         else {
-            echo "<table> <tr align=\"left\"> <th> Product Name </th> <th> Price </th> </tr>";
+            echo "<table> <tr align=\"left\"> <th> Product Name </th> <th> Price (USD) </th> </tr>";
             while ($row = mysqli_fetch_assoc($res)) {
                 echo "<tr align=\"left\"> <td> ".$row["ProductName"]." </td>";
                 echo "<td> ".$row["Price"]." </td> </tr>";
