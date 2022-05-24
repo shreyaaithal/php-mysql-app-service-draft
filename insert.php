@@ -49,15 +49,19 @@
     ?>
 
     <h2>Add a Product</h2>
-
-    <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label align="left" for="ProductName">Product Name</label>
-        <input align="right" type="text" name="ProductName" id="ProductName">
-        <label align="left" for="Price">Price</label>
-        <input align="right" type="text" name="Price" id="Price">
-        <br>
-        <input type="submit" name="submit" value="Submit">
-    </form>
+    <br><br>
+    
+    <div class="center-form">
+        <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label align="left" for="ProductName">Product Name</label>
+            <input align="right" type="text" name="ProductName" id="ProductName">
+            <br><br>
+            <label align="left" for="Price">Price</label>
+            <input align="right" type="text" name="Price" id="Price">
+            <br> <br>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
 
     <?php
         }

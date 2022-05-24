@@ -6,12 +6,17 @@
 	text-align: left;
 }
 
+.center-form {
+	width: 50%;
+	position: absolute;
+}
+
 ul {
 	display: inline-block;
 }
 
 label {
-	display: block;
+	display: inline-block;
 }
 
 input {
