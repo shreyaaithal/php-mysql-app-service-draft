@@ -63,7 +63,7 @@
             </tr>
         </table>      
         <br><br>
-        <input class="green-bg" type="submit" name="submit" value="Submit">
+        <input type="submit" name="submit" value="Submit">
     </form>
 
     <?php
