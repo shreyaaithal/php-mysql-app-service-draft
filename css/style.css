@@ -26,7 +26,8 @@ table {
 
 td,
 th {
-	display: block;
+	display: inline-block;
 	padding: 5px;
 	border-bottom: 1px solid #aaa;
+	width: 50%;
 }

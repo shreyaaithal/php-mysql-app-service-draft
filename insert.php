@@ -52,7 +52,7 @@
 
     <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <table>
-                <tr align="left">
+                <tr>
                     <td align="left">
                         <label for="ProductName">Product Name</label>
                     </td>
@@ -60,7 +60,7 @@
                         <input type="text" name="ProductName" id="ProductName">
                     </td>
                 </tr>
-                <tr align="left">
+                <tr>
                     <td align="right">
                         <label for="Price">Price</label>
                     </td>
